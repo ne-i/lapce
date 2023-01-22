@@ -45,6 +45,7 @@ render-whitespace = "none"
 show-indent-guide = true
 atomic-soft-tabs = false
 double-click = false
+deactivate-colon = false
 
 [terminal]
 font-family = ""

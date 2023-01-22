@@ -470,6 +470,8 @@ pub struct EditorConfig {
     pub atomic_soft_tabs: bool,
     #[field_names(desc = "Use double click to open interact with file explorer")]
     pub double_click: bool,
+    #[field_names(desc = "Deactivate ':' to trigger code completion")]
+    pub deactivate_colon: bool,
 }
 
 impl EditorConfig {
