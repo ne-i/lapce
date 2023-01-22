@@ -471,6 +471,8 @@ pub struct EditorConfig {
     pub double_click: bool,
     #[field_names(desc = "Move the focus as you type in the global search box")]
     pub move_focus_while_search: bool,
+    #[field_names(desc = "Deactivate ':' to trigger code completion")]
+    pub deactivate_colon: bool,
 }
 
 impl EditorConfig {

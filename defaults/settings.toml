@@ -46,6 +46,7 @@ show-indent-guide = true
 atomic-soft-tabs = false
 double-click = false
 move-focus-while-search = true
+deactivate-colon = false
 
 [terminal]
 font-family = ""

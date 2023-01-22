@@ -808,7 +808,9 @@ impl LapceEditorBufferData {
                 .to_string()
         };
         let completion = Arc::make_mut(&mut self.completion);
-        if !display_if_empty_input && input.is_empty() && char != "." && char != ":"
+        // TODO: support for more specific trigger Options
+        let ignore_colon = self.config.editor.deactivate_colon;
+        if !display_if_empty_input && input.is_empty() && char != "." && (ignore_colon || char != ":")
         {
             completion.cancel();
             return;
