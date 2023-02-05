@@ -13,8 +13,8 @@ use crate::{
     syntax::{
         edit::SyntaxEdit,
         util::{
-            has_unmatched_pair, matching_char, matching_pair_direction,
-            str_is_pair_left, str_matching_pair,
+            has_unmatched_pair, is_python_block, matching_char,
+            matching_pair_direction, str_is_pair_left, str_matching_pair,
         },
         Syntax,
     },
@@ -357,7 +357,9 @@ impl Editor {
 
             let new_line_content = {
                 let indent_storage;
-                let indent = if has_unmatched_pair(&first_half) {
+                let indent = if has_unmatched_pair(&first_half)
+                    || is_python_block(&first_half)
+                {
                     indent_storage =
                         format!("{}{}", line_indent, buffer.indent_unit());
                     &indent_storage
@@ -393,6 +395,9 @@ impl Editor {
                         }
                     }
                 }
+            } else {
+                let selection = Selection::region(line_start, line_end);
+                extra_edits.push((selection, String::from("")));
             }
         }
 

@@ -153,3 +153,7 @@ pub fn str_matching_pair(c: &str) -> Option<char> {
     }
     None
 }
+
+pub fn is_python_block(line: &str) -> bool {
+    return line.chars().last().unwrap_or('x') == ':';
+}
